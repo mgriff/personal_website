@@ -1,0 +1,19 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "my personal website on matthewgriffiths.me",
+  "main": "index.js",
+  "scripts": {
+    "test": "run tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgriff/personal_website.git"
+  },
+  "author": "Matthew Griffiths",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgriff/personal_website/issues"
+  },
+  "homepage": "https://github.com/mgriff/personal_website#readme"
+}
