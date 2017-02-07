@@ -2,8 +2,9 @@
   "name": "personal_website",
   "version": "1.0.0",
   "description": "my personal website on matthewgriffiths.me",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
     "test": "run tests"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "babel-preset-react": "^6.22.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "webpack": "^1.14.0"
+    "webpack": "^2.X.0",
+    "webpack-dev-server": "^2.3.0"
   }
 }

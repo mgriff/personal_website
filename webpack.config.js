@@ -1,26 +1,29 @@
+var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
-var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'build/');
-var APP_DIR = path.resolve(__dirname, '');
-
-var config = {
-  entry: APP_DIR + '/js/pages/Layout.js',
-  output: {
-    path: BUILD_DIR + '/js/',
-    filename: 'bundle.js'
-  },
-    
-    module : {
-    loaders : [
+module.exports = {
+  context: __dirname,
+  devtool: debug ? "inline-sourcemap" : null,
+  entry: "./src/js/client.js",
+  module: {
+    loaders: [
       {
-        test : /\.jsx?/,
-        include : APP_DIR + '/js/',
-        loader : 'babel'
+        test : /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
       }
     ]
-  }
-    
+  },
+  output: {
+    path: __dirname + "/src/",
+    filename: "client.min.js"
+  },
+  plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ]
 };
-
-module.exports = config;
