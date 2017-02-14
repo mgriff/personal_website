@@ -1,6 +1,8 @@
+"use strict";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Layout from "./components/Layout"
+import AppRoutes from "./components/AppRoutes"
 
-ReactDOM.render(<Layout/>, document.getElementById('app'));
+ReactDOM.render(<AppRoutes/>, document.getElementById('app'));
