@@ -1,13 +1,15 @@
+HTML, BODY, DIV
+{
+	height: 100%
+}
 
 BODY
 {
 	background-color: #F2E9E4;
 }
 
-
 DIV 
 {
-	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
