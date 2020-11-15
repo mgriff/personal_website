@@ -1,0 +1,29 @@
+
+BODY
+{
+	background-color: #F2E9E4;
+}
+
+
+DIV 
+{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+P 
+{
+	width:60%;
+	color: #313638;
+	font-family: "Helvetica", sans-serif;
+	font-size:2em;
+	text-align: center; 
+}
+
+P A 
+{
+	color: #F06543; 
+	/* color:#00FF66; */	
+}
