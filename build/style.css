@@ -17,7 +17,7 @@ DIV
 
 P 
 {
-	width:60%;
+	width:80%;
 	color: #313638;
 	font-family: "Helvetica", sans-serif;
 	font-size:2em;
@@ -27,5 +27,4 @@ P
 P A 
 {
 	color: #F06543; 
-	/* color:#00FF66; */	
 }
