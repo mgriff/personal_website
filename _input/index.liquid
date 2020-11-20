@@ -5,5 +5,7 @@ description: "Landing page of Matthew Griffiths' personal website"
 layout: layout.liquid
 ---
 			<div>
-				<p>This is the personal website of <a href="https://www.linkedin.com/in/matthewgriffiths1">matthew james griffiths</a>.</p>
+				<p>This is the personal website of <a href="{{ profile.linkedInUrl }}">{% lowercase profile.fullName %}</a>.</p>
 			</div>
+			
+			{{ profile }}
