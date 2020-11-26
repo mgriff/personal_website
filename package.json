@@ -1,0 +1,25 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgriff/personal_website.git"
+  },
+  "author": "Matthew J Griffiths",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgriff/personal_website/issues"
+  },
+  "homepage": "https://github.com/mgriff/personal_website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "contentful": "^7.14.14",
+    "dotenv": "^8.2.0"
+  }
+}

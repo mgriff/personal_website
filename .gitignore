@@ -48,3 +48,9 @@ jspm_packages
 
 #system files
 .DS_Store
+
+#Environment variables
+.env
+
+#Eleventy output files
+_site
