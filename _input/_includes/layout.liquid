@@ -1,12 +1,19 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="{{ name | lowercase }}">
 	<head>
 		<title>{{ title }}</title>
 		<meta name="description" content="{{ description }}">
-		<link rel="stylesheet" href="./style.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/style.css" type="text/css" media="screen">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body>
+	<body class="{{ name | lowercase }}">
+		<nav>
+			<ul>
+			{%- for navItem in collections.mainNav %}
+				<a href="{{ navItem.url }}" class="nav {%- if page.url == navItem.url %} current{%- endif -%}">{{ navItem.data.name lowercase }}</a>
+			{%- endfor %}
+		</nav>
 		<main id="maincontent">
 			{{ content }}
 		</main>

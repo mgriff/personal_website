@@ -1,0 +1,29 @@
+---
+title: "matthew james griffiths' personal website - projects"
+description: "Notable projects of Matthew Griffiths"
+
+name: Projects
+tags: 
+- mainNav
+
+layout: layout.liquid
+
+---
+		<div class="projects">
+{%- for project in projects %}
+			<article class="project">
+				<h2 class="{% if project.isPrivate == true %} private{% endif %}">{% if project.isPrivate == false %}<a href='{{ project.url }}' target="_blank">{% endif %}{{ project.name }}{% if project.isPrivate == false %}</a>{% endif %}</h2>
+				<p class="last-commit"><span>last commit: </span>{{ project.pushedAt | prettyDate }}</p>
+				<p>{{ project.description }}</p>
+				<div class="language-section">
+				
+					<ul class="languages">
+					{%- for language in project.languages %}
+						<li class="{{ project.name }} lang">{{ language.name }} <span class="percent"> ({{ language.percentage prettyPercent }})</span></li>
+					{%- endfor %}
+					</ul>
+				</div>
+			</article>
+{%- endfor %}
+
+		</div>

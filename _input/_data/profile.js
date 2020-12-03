@@ -9,7 +9,6 @@ module.exports = function() {
 		content_type: 'profile'
 	})
 	.then((response) => {
-		console.log(JSON.stringify(response));
 		return response.items[0].fields;
 	})
 	.catch(console.error);
