@@ -5,6 +5,8 @@ const client = new GraphQLClient("https://api.github.com/graphql", {
 	}
 });
 
+const fm = require('front-matter');
+
 
 module.exports = async function () {
 	
@@ -13,31 +15,33 @@ module.exports = async function () {
 		viewer {
 			login
 			repositories(first:50) {
-				edges {
-					node {
-						id
-						name
-						description
-						viewerHasStarred
-						updatedAt
-						createdAt
-						isPrivate
-						pushedAt
-						url
-						languages(first:10) {
-							totalCount
-							totalSize
-							edges {
-								size
-								node {
-									id
-									name
-									color
-								}
+				nodes {	
+					id
+					name
+					description
+					viewerHasStarred
+					updatedAt
+					createdAt
+					isPrivate
+					pushedAt
+					url
+					object(expression:"master:README.md") {
+						... on Blob {
+							text	
+						}		
+					}
+					languages(first:10) {
+						totalCount
+						totalSize
+						edges {
+							size
+							node {
+								id
+								name
+								color
 							}
 						}
-						
-					}
+					}	
 				}
 			}
 		}
@@ -49,30 +53,49 @@ module.exports = async function () {
 	// 	}
 		
 	const data = await client.request(query);
+	
+	console.log(JSON.stringify(data));	
 		
 	var projects = [];
 	
-	for(project of data.viewer.repositories.edges) {
-		if( project.node.viewerHasStarred ) {
+	for(project of data.viewer.repositories.nodes) {
+		
+		/* Only show projects that I have chosen 
+		 *  to show on the website i.e starred
+		 */
+		if( project.viewerHasStarred ) {
 			
+			/*
+			 * Pull out the languages to simplify the data structure
+			 */
 			var languageArray = [];
 						
-			for(language of project.node.languages.edges) {
+			for(language of project.languages.edges) {
 				var tempLang = language.node;
-				tempLang.percentage = (language.size / project.node.languages.totalSize)*100;
+				tempLang.percentage = (language.size / project.languages.totalSize)*100;
 				
 				languageArray.push(tempLang);
 			}
 			
-			project.node.languages =  languageArray;
-			project.node.languageSize = project.node.languages.languageSize;
+			project.languages =  languageArray;
+			project.languageSize = project.languages.languageSize;
 			
-			project.node.date = project.node.pushedAt.toString().split('T')[0];
+			// Set the date for sorting
+			project.date = project.pushedAt.toString().split('T')[0];
 			
-		//	project.node.projectDescription = project.node.object.text;
+			/*
+			 *  Pull out the Front matter from the README file (if it exists
+			 */
+			if(project.object != null) {
+				const frontMatter = fm(project.object.text);
+				
+				console.log("frontMatter:"+JSON.stringify(frontMatter));
+				
+				project.name = frontMatter.attributes.name != null ? frontMatter.attributes.name : project.name;
+				project.description = frontMatter.attributes.description != null ? frontMatter.attributes.description : project.description;
+			} 
 			
-			projects.push(project.node);
-			
+			projects.push(project);
 		}
 	}
 	
