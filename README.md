@@ -1,6 +1,6 @@
 ---
-name: Personal website
-description: The code for my personal website, the one you are on now, which is built uisng the Eleventy static site generator. 
+name: My personal website
+description: The code for my personal website.
 ---
 **My personal website**
 

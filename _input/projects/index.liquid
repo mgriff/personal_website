@@ -12,7 +12,7 @@ layout: layout.liquid
 		<div class="projects">
 {%- for project in projects %}
 			<article class="project">
-				<h2 class="{% if project.isPrivate == true %} private{% endif %}">{% if project.isPrivate == false %}<a href='{{ project.url }}' target="_blank">{% endif %}{{ project.name }}{% if project.isPrivate == false %}</a>{% endif %}</h2>
+				<h2 class="{% if project.isPrivate == true %} private{% endif %}">{% if project.isPrivate == false or project.displayUrl == true %}<a href='{{ project.url }}' target="_blank">{% endif %}{{ project.name }}{% if project.isPrivate == false or project.displayUrl == true %}</a>{% endif %}</h2>
 				<p class="last-commit"><span>last commit: </span>{{ project.pushedAt | prettyDate }}</p>
 				<p>{{ project.description }}</p>
 				<div class="language-section">

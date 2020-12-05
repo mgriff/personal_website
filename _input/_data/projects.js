@@ -93,6 +93,10 @@ module.exports = async function () {
 				
 				project.name = frontMatter.attributes.name != null ? frontMatter.attributes.name : project.name;
 				project.description = frontMatter.attributes.description != null ? frontMatter.attributes.description : project.description;
+				if( frontMatter.attributes.url != null ) {
+					project.url = frontMatter.attributes.url;
+					project.displayUrl = true;
+				}
 			} 
 			
 			projects.push(project);
