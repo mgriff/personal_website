@@ -9,7 +9,6 @@
 	</head>
 	<body class="{{ name | lowercase }}">
 		<nav>
-			<ul>
 			{%- for navItem in collections.mainNav %}
 				<a href="{{ navItem.url }}" class="nav {%- if page.url == navItem.url %} current{%- endif -%}">{{ navItem.data.name lowercase }}</a>
 			{%- endfor %}
