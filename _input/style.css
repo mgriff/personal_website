@@ -135,7 +135,8 @@ P.last-commit
 
 P.last-commit SPAN
 {
-	font-size: 0.8em;	
+	font-size: 0.8em;
+	font-weight: bold;	
 }
 
 ARTICLE.project UL.languages 
