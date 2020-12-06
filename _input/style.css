@@ -1,7 +1,8 @@
 /*
- * #313638 background
+ *
+ * #FFFCFB Background colour
  * #F06543 highlight colour
- * #F2E9E4
+ * #F2E9E4 Background colour (old)
  */
 
 * 
@@ -22,11 +23,8 @@ HTML, BODY
 
 BODY 
 {
-	//display:flex;
-	//flex-direction: column;
-	background-color: #F2E9E4;
-	//align-items: center;
-	
+
+	background-color: #FFFCFB; // #F2E9E4;
 	height:100%;
 }
 
@@ -53,9 +51,6 @@ NAV
 	display: flex;
 	align-items: center;
 	padding-left:2em;
-//	width:100%;
-//	justify-content: left;
-//	order:1;
 }
 
 NAV A 
@@ -95,7 +90,6 @@ DIV.center
 	display: flex;
 	align-items: center;
 	justify-content: center;
-//	order:2;
 }
 
 DIV.center P 
@@ -164,7 +158,6 @@ ARTICLE.project UL.languages LI
 
 ARTICLE.project UL.languages LI SPAN 
 {
-	font-size:0.6em;
+	font-size: 0.6em;
 	padding-left: 0.3em;
 }
-
