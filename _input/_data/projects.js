@@ -53,9 +53,7 @@ module.exports = async function () {
 	// 	}
 		
 	const data = await client.request(query);
-	
-	console.log(JSON.stringify(data));	
-		
+			
 	var projects = [];
 	
 	for(project of data.viewer.repositories.nodes) {
@@ -88,11 +86,11 @@ module.exports = async function () {
 			 */
 			if(project.object != null) {
 				const frontMatter = fm(project.object.text);
-				
-				console.log("frontMatter:"+JSON.stringify(frontMatter));
-				
+								
 				project.name = frontMatter.attributes.name != null ? frontMatter.attributes.name : project.name;
 				project.description = frontMatter.attributes.description != null ? frontMatter.attributes.description : project.description;
+				
+				//Override the URL if present in the front matter
 				if( frontMatter.attributes.url != null ) {
 					project.url = frontMatter.attributes.url;
 					project.displayUrl = true;
