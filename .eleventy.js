@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const prettydate = require("pretty-date");
+const dateformat = require('dateformat');
 
 module.exports = (function(eleventyConfig){
 	/*
@@ -44,7 +44,7 @@ module.exports = (function(eleventyConfig){
 	});
 	
 	eleventyConfig.addFilter('prettyDate', function(date){
-		return prettydate.format(new Date(date));
+		return dateformat(new Date(date));
 	});
 	
 	/*

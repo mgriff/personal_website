@@ -79,7 +79,7 @@ module.exports = async function () {
 			project.languageSize = project.languages.languageSize;
 			
 			// Set the date for sorting
-			project.date = project.pushedAt.toString().split('T')[0];
+			project.date = project.pushedAt; //.toString().split('T')[0];
 			
 			/*
 			 *  Pull out the Front matter from the README file (if it exists
