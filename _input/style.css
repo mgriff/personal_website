@@ -41,6 +41,10 @@ A
 	color: #F06543;	
 }
 
+ .bold 
+ {
+	font-weight: bold;
+ }
 
 /****************
  *  Navigation 
@@ -103,7 +107,6 @@ DIV.center P
 /****************
  *  Projects page
  ****************/
- 
 DIV.projects
 {
 	padding-left: 0;
@@ -162,3 +165,12 @@ ARTICLE.project UL.languages LI SPAN
 	font-size: 0.6em;
 	padding-left: 0.3em;
 }
+
+/****************
+ *  404 page
+ ****************/
+BODY.fourzerofour DIV.center P
+{
+	font-size: 1.6em;
+}
+ 
