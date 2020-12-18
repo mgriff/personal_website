@@ -104,9 +104,9 @@ module.exports = async function () {
 	projects.sort((a,b) => {
 		console.log("a:"+a.date);
 		console.log("b:"+b.date);
-		console.log(a.date < b.date);
-		
-		return a.date < b.date;
+		console.log(a.date < b.date ? 1 : -1);
+
+		return a.date < b.date ? 1 : -1;
 	});
 	
 	return projects;
